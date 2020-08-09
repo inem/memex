@@ -13,7 +13,7 @@ function Wrap()
         }
         return result;
       }
-      return data;  
+      return data;
     }
 
     this.objectSplit = function(data)
@@ -31,6 +31,20 @@ function Wrap()
       return data;
     }
 
+    this.renderMarkdown = function(data)
+    {
+      var mdit = window.markdownit({
+        linkify:      true,
+        typographer:  true
+      });
+      if(data) {
+        md = data.join("\n");
+        console.log(md);
+        return mdit.render(md);
+      }
+      return '';
+    }
+
     let database = new Indental(data).parse();
     let keys = Object.keys(database);
     for (let i = 0; i < keys.length; i++)
@@ -44,6 +58,7 @@ function Wrap()
 
       entry.LINK = this.objectSplit(entry.LINK);
       entry.FILE = this.objectSplit(entry.FILE);
+      entry.MARK = this.renderMarkdown(entry.MARK);
 
       database[keys[i]].DIID = i;
     }
@@ -79,7 +94,7 @@ function Wrap()
         {
           // TAG
           let tagRequest = decodeURI(splitTarget[1]);
-          for (let i = 0; i < keys.length; i++) 
+          for (let i = 0; i < keys.length; i++)
           {
             let value = db[keys[i]];
             if (typeof value.TAGS !== 'undefined')
@@ -98,8 +113,8 @@ function Wrap()
         {
           // PROJECT
           let projectRequest = decodeURI(splitTarget[1]);
-          for (let i = 0; i < keys.length; i++) 
-          { 
+          for (let i = 0; i < keys.length; i++)
+          {
             let value = db[keys[i]];
             if (typeof value.PROJ !== 'undefined')
             {
@@ -117,8 +132,8 @@ function Wrap()
         {
           // TYPE
           let typeRequest = decodeURI(splitTarget[1]);
-          for (let i = 0; i < keys.length; i++) 
-          { 
+          for (let i = 0; i < keys.length; i++)
+          {
             let value = db[keys[i]];
             if (typeof value.TYPE !== 'undefined')
             {
@@ -148,8 +163,8 @@ function Wrap()
         {
           // DONE
           let doneValue = decodeURI(splitTarget[1]);
-          for (let i = 0; i < keys.length; i++) 
-          { 
+          for (let i = 0; i < keys.length; i++)
+          {
             let value = db[keys[i]];
             if (doneValue == 'true')
             {
@@ -185,7 +200,7 @@ function Wrap()
   {
     // CALCULATE
     let dbKeys = Object.keys(db);
-    var stats = 
+    var stats =
     {
       total: dbKeys.length,
       types: {},
@@ -212,7 +227,7 @@ function Wrap()
       // TAGS
       if (typeof db[dbKeys[i]].TAGS !== 'undefined')
       {
-        for (var t = 0; t < db[dbKeys[i]].TAGS.length; t++) 
+        for (var t = 0; t < db[dbKeys[i]].TAGS.length; t++)
         {
           if (typeof stats.tags[db[dbKeys[i]].TAGS[t]] !== 'undefined')
           {
@@ -246,18 +261,18 @@ function Wrap()
         if (db[dbKeys[i]].DONE == 'true')
         {
           stats.done ++;
-        } 
+        }
       }
-    } 
+    }
 
     // SORT TYPES, TAKE TOP X
     // Create items array
-    var typeItems = Object.keys(stats.types).map(function(key) 
+    var typeItems = Object.keys(stats.types).map(function(key)
     {
       return [key, stats.types[key]];
     });
     // Sort the array based on the second element
-    typeItems.sort(function(first, second) 
+    typeItems.sort(function(first, second)
     {
       return second[1] - first[1];
     });
@@ -265,12 +280,12 @@ function Wrap()
 
     // SORT TAGS, TAKE TOP X
     // Create items array
-    var tagItems = Object.keys(stats.tags).map(function(key) 
+    var tagItems = Object.keys(stats.tags).map(function(key)
     {
       return [key, stats.tags[key]];
     });
     // Sort the array based on the second element
-    tagItems.sort(function(first, second) 
+    tagItems.sort(function(first, second)
     {
       return second[1] - first[1];
     });

@@ -6,3 +6,5 @@ content/media/*.zip
 content/media/*.rar
 content/media/*.html
 content/media/*.mobi
+.vscode/settings.json
+content/old_data.ndtl.rb

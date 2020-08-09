@@ -53,18 +53,22 @@
 }
 html {
 	font-family: 'Monaco', 'Andale Mono', 'Deja Vu Sans Mono', 'Consolas', monospace;
-	background: var(--background); 
+	background: var(--background);
 	padding: 0em;
-	margin: 0; 
-  overflow-y: scroll; 
+	margin: 0;
+  overflow-y: scroll;
 }
 body {
 	padding: 0em;
-	margin: 0; 
+	margin: 0;
 }
 ::selection {
   background: var(--color-itemascent);
   color: var(--color-itembg)
+}
+
+a {
+  color: gray;
 }
 
 a:active, a:focus {
@@ -92,7 +96,7 @@ a:active, a:focus {
   background: var(--color-itemascent);
   animation: loading-wave 1.5s infinite;
   transition-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out; 
+  -webkit-animation-timing-function: ease-in-out;
 }
 .loading-wave div:nth-child(1) {
   left: 0px;
@@ -147,7 +151,7 @@ a:active, a:focus {
   border-style: solid;
 }
 .error:after {
-  content:'error'; 
+  content:'error';
   margin-left: var(--size-grid-gutter) ;
   margin-right: var(--size-grid-gutter) ;
 }
@@ -253,7 +257,7 @@ nav::-webkit-scrollbar {
 
 /* MAIN */
 .container {
-  background: var(--background); 
+  background: var(--background);
   margin-left: calc(var(--size-menu) + var(--size-grid-gutter));
 	margin-right: var(--size-grid-gutter);
 }
@@ -273,17 +277,17 @@ main:after {
   margin-bottom: var(--size-grid-gutter);
   background: var(--color-itembg);
 	width: var(--size-grid-column);
-  text-decoration: none; 
+  text-decoration: none;
   position: relative;
 	float: left;
   overflow: hidden;
 }
 @media screen and (min-width: 886px) {
-	.article-wide { 
+	.article-wide {
 		width: calc(var(--size-grid-column) * 2 + var(--size-grid-gutter));
 	}
 }
-article:hover { 
+article:hover {
   background: var(--color-itembg);
 }
 article::selection {
@@ -371,7 +375,7 @@ article:hover .article-containerlower-image {
   padding-top: var(--size-grid-gutter);
   cursor: var(--cursor-expandImage);
 }
-.image-overlay { 
+.image-overlay {
   background-color: var(--color-imagedarken);
   position: absolute;
   height: 100%;
@@ -380,7 +384,7 @@ article:hover .article-containerlower-image {
   opacity: 0;
   cursor: var(--cursor-expandImage);
 }
-.article:hover .image-overlay { 
+.article:hover .image-overlay {
   opacity: var(--alpha-darken);
 }
 .article-image .article-link {
@@ -409,7 +413,7 @@ article:hover .article-containerlower-image {
 }
 
 /* LINK */
-.article-linkcontainer { 
+.article-linkcontainer {
   margin-top: var(--size-item-elem-padding);
   float: left;
   clear: both;
@@ -422,17 +426,17 @@ article:hover .article-containerlower-image {
   display: inline-block;
 }
 
-.article-linktitle { 
+.article-linktitle {
   opacity: var(--alpha-idle);
   color: var(--color-item);
   font-size: var(--size-font-body);
   float: left;
 }
-.article-link:hover .article-linktitle { 
+.article-link:hover .article-linktitle {
   background-color: var(--color-itemascent);
   color: var(--color-itembg);
 }
-.article-linkicon { 
+.article-linkicon {
   width: 23px;
   font-size: 15px;
   color: var(--color-item);
@@ -493,7 +497,7 @@ article:hover .article-icon {
 }
 .article-row {
   padding-top: var(--size-item-elem-padding);
-  color: var(--color-item); 
+  color: var(--color-item);
   font-size: var(--size-font-body);
   float: left;
   clear: both;
@@ -503,7 +507,7 @@ article:hover .article-row {
   color: var(--color-item);
 }
 .article-image .article-row {
-  color: var(--color-image); 
+  color: var(--color-image);
 }
 .article-rowtext {
   display: inline;
@@ -516,7 +520,7 @@ article:hover .article-rowtext {
   word-break: break-all;
 }
 .article-file-link {
-  color: var(--color-item); 
+  color: var(--color-item);
   text-decoration: none;
 }
 .article-file-link:hover {
@@ -533,27 +537,27 @@ article:hover .article-rowtext {
   display: initial;
 }
 .article-taglink {
-  color: var(--color-item); 
-  text-decoration:none; 
+  color: var(--color-item);
+  text-decoration:none;
 }
 article:hover .article-taglink {
-  color: var(--color-item); 
+  color: var(--color-item);
 }
 article:hover .article-taglink:hover {
   background-color: var(--color-itemascent);
   color: var(--color-itembg);
 }
 .article-image:hover .article-taglink {
-  color: #fff; 
+  color: #fff;
 }
 .article-image:hover .article-taglink:hover {
-  color: #fff; 
+  color: #fff;
 }
 
 /* SMALL ICONS */
 .textIcon {
   color: #fff;
-  margin-right: var(--size-item-elem-sep); 
+  margin-right: var(--size-item-elem-sep);
 }
 article:hover .textIcon {
   color: var(--color-item);
